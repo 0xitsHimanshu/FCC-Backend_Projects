@@ -26,7 +26,7 @@ app.get("/api/timestamp", function (req, res) {
 });
 
 app.get("/api", (req, res)=>{
-    const currentDate = new Date().toUTCString;
+    const currentDate = new Date().toUTCString();
     const currentUnix = Date.parse(currentDate)
 
     res.json({unix: currentUnix, utc: currentDate});
@@ -39,7 +39,7 @@ app.get("/api/:date", (req, res)=>{
 
     if(!numbersOnly){
         const unixTimestamp = Date.parse(dateString);
-        const utcDate = new Date(unixTimestamp).toUTCString;
+        const utcDate = new Date(unixTimestamp).toUTCString();
 
         unixTimestamp
         ? res.json({unix:unixTimestamp , utc : utcDate})
@@ -47,7 +47,7 @@ app.get("/api/:date", (req, res)=>{
 
     } else {
         const unixTimestamp = parseInt(dateString);
-        const utcDate = new Date(unixTimestamp).toUTCString;
+        const utcDate = new Date(unixTimestamp).toUTCString();
         
         res.json({unix: unixTimestamp, utc: utcDate});
     }
