@@ -17,7 +17,17 @@ app.get('/', (req, res)=>{
 app.get('/api/hello', (req, res)=>{
     res.json({greeting: 'Hello api'});
 })
+app.get('/api/whoami', (req, res)=>{
+    const ipAddres = req.ip;
+    const lang = req.headers['accept-language'];
+    const Software = req.headers['user-agent'];
 
+    res.json({
+        ipaddress: ipAddres,
+        language: lang,
+        software: Software
+    });
+})
 //listen for the request
 app.listen(port, ()=>{
     console.log(`Server is running successfully on the http://localhost:${port}`);
